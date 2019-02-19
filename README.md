@@ -1,0 +1,1 @@
+AskBear is the web application front-end to access AnswerBear service.
