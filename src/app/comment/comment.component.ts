@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {FormControl} from '@angular/forms';
+import {Comment} from './comment';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-comment',
@@ -7,11 +9,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
+  answerBearUrl = 'https://answer-bear.herokuapp.com';
 
-  constructor() {
+  comment = new FormControl('');
+  reply = new FormControl('');
+
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
   }
 
+  showReply() {
+    this.http.post(this.answerBearUrl, this.comment.value).subscribe((data: Comment) => this.reply.setValue(data.reply));
+  }
 }
