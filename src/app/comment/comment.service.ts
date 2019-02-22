@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Comment} from './comment';
 
 @Injectable({
   // we declare that this service should be created

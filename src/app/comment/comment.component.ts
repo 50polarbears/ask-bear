@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {Comment} from './comment';
 import {HttpClient} from '@angular/common/http';
+import {Reply} from './reply';
 
 @Component({
   selector: 'app-comment',
@@ -21,6 +21,20 @@ export class CommentComponent implements OnInit {
   }
 
   showReply() {
-    this.http.post(this.answerBearUrl, this.comment.value).subscribe((data: Comment) => this.reply.setValue(data.reply));
+    this.http.post<Reply>(this.answerBearUrl, {
+      comment: this.comment.value
+    }).subscribe(
+      (val) => {
+        console.log('POST call successful value returned in body', val);
+        this.reply.setValue(val.reply);
+      },
+      response => {
+        console.log('POST call in error', response);
+      },
+      () => {
+        console.log('The POST observable is now completed.');
+      });
+
+    // subscribe((data: Reply) => this.reply.setValue(data.reply));
   }
 }
