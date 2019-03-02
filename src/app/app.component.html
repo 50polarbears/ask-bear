@@ -1,24 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }} foobar!
-  </h1>
-  <img width="300" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Polar_Bear_-_Alaska_%28cropped%29.jpg/330px-Polar_Bear_-_Alaska_%28cropped%29.jpg">
+<nav class="navbar navbar-expand-md">
+  <a class="navbar-brand" href="#">
+    <img width="100" alt="Bear"
+         src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Polar_Bear_-_Alaska_%28cropped%29.jpg/330px-Polar_Bear_-_Alaska_%28cropped%29.jpg">
+  </a>
+
+  <h1>I'm Bear! How can I help you?</h1>
+</nav>
+
+
+<div class="container">
+  <app-comment></app-comment>
 </div>
-
-<textarea class="form-control"
-          name="message"
-          rows="8"
-          [(ngModel)]="Obj.message"
-          #message='ngModel'
-></textarea>
-
-<textarea ng-model="textarea" class="textarea">
-  Your comment goes here
-</textarea>
-
-<textarea>
-  I answer here
-</textarea>
-
-
